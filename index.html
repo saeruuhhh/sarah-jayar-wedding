@@ -196,74 +196,90 @@ Friendly Reminders
 
 <section id="rsvp" class="section">
 
-<div class="container">
+    <div class="container">
 
-<h2 class="text-center">
-RSVP
-</h2>
+        <h2 class="text-center">
+            RSVP
+        </h2>
 
-<p class="text-center">
+        <p class="text-center mb-4">
+            Please confirm your attendance on or before
+            <strong>August 7, 2026.</strong>
+        </p>
 
-Please confirm your attendance on or before
+        <form
+            id="rsvpForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSdBFjb2PpbJFhG4VaxPXbV0eCI1V6n1YSOkQPgd9N0FARa9cw/formResponse"
+            method="POST"
+            target="rsvpSubmissionFrame">
 
-<strong>August 7, 2026.</strong>
+            <input
+                type="text"
+                id="guestName"
+                name="entry.1150856461"
+                class="form-control mb-3"
+                placeholder="Complete Name"
+                autocomplete="name"
+                required>
 
-</p>
+            <select
+                id="attendance"
+                name="entry.470752330"
+                class="form-select mb-3"
+                required>
 
-<form id="rsvpForm">
+                <option value="" selected disabled>
+                    Will you attend?
+                </option>
 
-    <input
-        type="text"
-        id="guestName"
-        class="form-control mb-3"
-        placeholder="Complete Name"
-        required>
+                <option value="Joyfully Accepts">
+                    Joyfully Accepts
+                </option>
 
-    <select
-        id="attendance"
-        class="form-select mb-3"
-        required>
+                <option value="Regretfully Declines">
+                    Regretfully Declines
+                </option>
 
-        <option value="" selected disabled>
-            Will you attend?
-        </option>
+            </select>
 
-        <option value="Joyfully Accepts">
-            Joyfully Accepts
-        </option>
+            <button
+                type="submit"
+                id="rsvpSubmitButton"
+                class="btn btn-success w-100">
 
-        <option value="Regretfully Declines">
-            Regretfully Declines
-        </option>
+                Submit RSVP
 
-    </select>
+            </button>
 
-    <button
-        type="submit"
-        class="btn btn-success w-100">
+        </form>
 
-        Submit RSVP
+        <!-- Google Forms submits inside this hidden frame. -->
+        <iframe
+            id="rsvpSubmissionFrame"
+            name="rsvpSubmissionFrame"
+            title="RSVP submission"
+            style="display:none;">
+        </iframe>
 
-    </button>
+        <div
+            id="successMessage"
+            class="alert alert-success mt-4 text-center"
+            role="status"
+            aria-live="polite"
+            style="display:none;">
 
-</form>
+            <h5>💚 Thank you for your response!</h5>
 
-<div
-    id="successMessage"
-    class="alert alert-success mt-4 text-center"
-    style="display:none;">
+            <p class="mb-0">
+                We have received your RSVP.<br>
+                We look forward to celebrating our special day with you!
+            </p>
 
-    <h5>💚 Thank you for your RSVP!</h5>
+        </div>
 
-    <p class="mb-0">
-        We have successfully received your response.<br>
-        We look forward to celebrating with you on our special day!
-    </p>
-
-</div>
+    </div>
 
 </section>
-
 
 
 <!-- Bootstrap JS -->
