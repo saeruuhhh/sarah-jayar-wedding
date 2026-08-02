@@ -20,46 +20,56 @@
 
 <!-- ================= HERO ================= -->
 
-<section class="hero">
+<!-- HERO -->
+<section id="hero" class="hero">
 
     <div class="overlay">
 
-        <p class="invite">YOU ARE INVITED TO</p>
+        <p class="small-title">YOU ARE INVITED TO</p>
 
-        <h1>Sarah & Jay-Ar</h1>
+        <h1 class="couple-name">
+            Sarah &amp; Jay-Ar
+        </h1>
 
-        <h3>August 18, 2026</h3>
+        <p class="wedding-date">
+            August 18, 2026
+        </p>
 
-        <p>2:00 PM</p>
+        <p class="wedding-time">
+            2:00 PM
+        </p>
 
-        <button class="btn btn-success hero-btn"
-            onclick="document.getElementById('invitation').scrollIntoView({behavior:'smooth'})">
+        <a href="#invitation" class="main-btn">
             View Invitation
-        </button>
+        </a>
 
     </div>
 
 </section>
-
-
-<!-- Invitation -->
-
 <section id="invitation" class="section">
 
     <div class="container text-center">
 
-        <img src="images/invitation front.jpg"
-            class="img-fluid invitation">
+        <h2 class="section-title">
+            Our Wedding Invitation
+        </h2>
+
+        <img
+            src="images/invitation-front.jpg"
+            class="img-fluid invitation shadow"
+            alt="Wedding Invitation">
 
         <br><br>
 
-        <img src="images/invitation back.jpg"
-            class="img-fluid invitation">
+        <img
+            src="images/invitation-back.jpg"
+            class="img-fluid invitation shadow"
+            alt="Wedding Invitation Back">
 
     </div>
 
 </section>
-
+    
 
 
 <!-- Countdown -->
