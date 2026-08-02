@@ -1,46 +1,28 @@
 /* ===========================
-   Sarah & Jay-Ar Wedding
-   =========================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
-
-:root{
-    --sage:#D9DBC5;
-    --olive:#5D6D5A;
-    --cream:#F9F8F3;
-    --white:#ffffff;
-    --text:#37423B;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+   GENERAL
+=========================== */
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:var(--cream);
-    color:var(--text);
-    overflow-x:hidden;
+    margin:0;
+    padding:0;
+    background:#F7F5EA;
+    color:#3f4d3f;
+    font-family:'Cormorant Garamond', serif;
 }
 
-/* ---------- Sections ---------- */
-
-section{
+.section{
     padding:90px 20px;
 }
 
-.container{
-    max-width:1100px;
-    margin:auto;
+h2{
+    font-size:48px;
+    margin-bottom:30px;
 }
 
-/* ---------- Hero ---------- */
+
+/* ===========================
+   HERO
+=========================== */
 
 .hero{
     min-height:100vh;
@@ -48,209 +30,252 @@ section{
     justify-content:center;
     align-items:center;
     text-align:center;
-    background:
-        linear-gradient(rgba(249,248,243,.92),rgba(249,248,243,.92)),
-        url("images/floral-bg.jpg") center/cover;
+    background:#F5F4E8;
 }
 
-.hero h4{
-    letter-spacing:5px;
-    color:var(--olive);
-    margin-bottom:18px;
-    font-weight:500;
+.overlay{
+    width:100%;
+    max-width:1000px;
+    padding:20px;
 }
 
-.hero h1{
-    font-family:'Great Vibes',cursive;
-    font-size:5rem;
-    color:var(--olive);
+.small-title{
+    letter-spacing:8px;
+    font-size:22px;
+    color:#4f5d4b;
+    margin-bottom:20px;
 }
 
-.hero p{
-    margin-top:15px;
-    font-size:1.3rem;
-}
-
-.btn-main{
-    display:inline-block;
-    margin-top:40px;
-    padding:15px 45px;
-    border-radius:50px;
-    background:var(--olive);
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.btn-main:hover{
-    background:#465543;
-    transform:translateY(-2px);
-}
-
-/* ---------- Titles ---------- */
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:3rem;
-    color:var(--olive);
-}
-
-/* ---------- Countdown ---------- */
-
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.time-box{
-    background:white;
-    border-radius:18px;
-    width:150px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 12px 25px rgba(0,0,0,.08);
-}
-
-.time-box h3{
-    font-size:2.4rem;
-    color:var(--olive);
-}
-
-.time-box span{
-    display:block;
-    margin-top:10px;
-    color:#777;
-}
-
-/* ---------- Cards ---------- */
-
-.card-box{
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+.couple-name{
+    font-family:'Great Vibes', cursive;
+    font-size:130px;
+    color:#66735D;
+    line-height:1;
     margin-bottom:35px;
 }
 
-/* ---------- Dress Code ---------- */
-
-.dress-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.dress-card{
-    background:var(--sage);
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-}
-
-.dress-card h4{
-    color:var(--olive);
-    margin-bottom:15px;
-}
-
-.dress-card p{
-    line-height:1.8;
-}
-
-/* ---------- Reminder List ---------- */
-
-.reminder-list{
-    list-style:none;
-    padding:0;
-}
-
-.reminder-list li{
-    padding:14px 0;
-    border-bottom:1px solid #e5e5e5;
-    font-size:1.05rem;
-}
-
-/* ---------- RSVP ---------- */
-
-.rsvp-box{
-    max-width:650px;
-    margin:auto;
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.rsvp-box input{
-    width:100%;
-    padding:15px;
-    margin:15px 0;
-    border:1px solid #ccc;
-    border-radius:12px;
-    font-size:16px;
-}
-
-.radio-group{
-    margin:20px 0;
-}
-
-.radio-group label{
-    display:block;
-    margin-bottom:12px;
-}
-
-button{
-    background:var(--olive);
-    color:white;
-    border:none;
-    padding:15px 35px;
-    border-radius:40px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    background:#495845;
-}
-
-/* ---------- Footer ---------- */
-
-footer{
-    background:var(--sage);
-    text-align:center;
-    padding:45px 20px;
-}
-
-footer p{
+.wedding-date{
+    font-size:56px;
     margin-bottom:10px;
 }
 
-.footer-name{
-    font-family:'Great Vibes',cursive;
-    font-size:2.5rem;
-    color:var(--olive);
+.wedding-time{
+    font-size:40px;
+    margin-bottom:40px;
 }
 
-/* ---------- Responsive ---------- */
+.invitation-btn{
+
+    background:#66735D;
+    color:white;
+    border:none;
+
+    padding:16px 55px;
+
+    font-size:28px;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+}
+
+.invitation-btn:hover{
+
+    background:#55614f;
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ===========================
+   COUNTDOWN
+=========================== */
+
+.countdown-section{
+
+    background:white;
+
+}
+
+#countdown{
+
+    font-size:46px;
+
+    color:#66735D;
+
+    font-weight:bold;
+
+}
+
+
+/* ===========================
+   CARDS
+=========================== */
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:white;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.card h4{
+
+    margin-bottom:20px;
+
+}
+
+
+/* ===========================
+   REMINDER
+=========================== */
+
+.reminder ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.reminder li{
+
+    margin:18px 0;
+
+    font-size:24px;
+
+}
+
+
+/* ===========================
+   RSVP
+=========================== */
+
+form{
+
+    max-width:600px;
+
+    margin:auto;
+
+}
+
+.form-control,
+.form-select{
+
+    height:60px;
+
+    font-size:20px;
+
+    border-radius:15px;
+
+}
+
+.btn-success{
+
+    background:#66735D;
+
+    border:none;
+
+    border-radius:15px;
+
+    height:60px;
+
+    font-size:22px;
+
+}
+
+.btn-success:hover{
+
+    background:#55614f;
+
+}
+
+
+/* ===========================
+   INVITATION IMAGES
+=========================== */
+
+.invitation{
+
+    width:100%;
+
+    max-width:700px;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
 
 @media(max-width:768px){
 
-.hero h1{
-    font-size:3.6rem;
+.small-title{
+
+    font-size:18px;
+
+    letter-spacing:5px;
+
 }
 
-.section-title h2{
-    font-size:2.3rem;
+.couple-name{
+
+    font-size:78px;
+
 }
 
-.time-box{
-    width:120px;
+.wedding-date{
+
+    font-size:36px;
+
+}
+
+.wedding-time{
+
+    font-size:28px;
+
+}
+
+.invitation-btn{
+
+    width:260px;
+
+    font-size:24px;
+
+}
+
+#countdown{
+
+    font-size:34px;
+
+}
+
+.reminder li{
+
+    font-size:20px;
+
+}
+
+h2{
+
+    font-size:38px;
+
 }
 
 }
