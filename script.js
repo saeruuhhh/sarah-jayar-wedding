@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // =====================================
     // Wedding Countdown
-    // August 18, 2026 at 2:00 PM
-    // Philippine time
     // =====================================
 
     const countdown = document.getElementById("countdown");
@@ -20,15 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const distance = weddingDate - Date.now();
 
         if (distance <= 0) {
-
-            countdown.textContent =
-                "💍 Today is our Wedding Day!";
-
+            countdown.textContent = "💍 Today is our Wedding Day!";
             return;
         }
 
-        const days =
-            Math.floor(distance / 86400000);
+        const days = Math.floor(distance / 86400000);
 
         const hours =
             Math.floor((distance % 86400000) / 3600000);
@@ -45,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     updateCountdown();
-
     setInterval(updateCountdown, 1000);
 
 
@@ -53,8 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // RSVP Submission
     // =====================================
 
-    const form =
-        document.getElementById("rsvpForm");
+    const form = document.getElementById("rsvpForm");
 
     const submissionFrame =
         document.getElementById("rsvpSubmissionFrame");
@@ -71,41 +63,25 @@ document.addEventListener("DOMContentLoaded", function () {
         !successMessage ||
         !submitButton
     ) {
-
-        console.error(
-            "RSVP setup error: one or more RSVP elements are missing."
-        );
-
+        console.error("One or more RSVP elements are missing.");
         return;
     }
 
     let submissionStarted = false;
+    let confirmationTimer;
 
-    form.addEventListener("submit", function () {
+    function showConfirmation() {
 
-        submissionStarted = true;
-
-        successMessage.style.display = "none";
-
-        submitButton.disabled = true;
-
-        submitButton.textContent = "Submitting...";
-    });
-
-    submissionFrame.addEventListener("load", function () {
-
-        // Ignore the iframe's initial blank-page load.
         if (!submissionStarted) {
             return;
         }
 
         submissionStarted = false;
 
-        form.reset();
+        clearTimeout(confirmationTimer);
 
-        submitButton.disabled = false;
-
-        submitButton.textContent = "Submit RSVP";
+        // Hide the form so the guest cannot submit repeatedly.
+        form.style.display = "none";
 
         successMessage.style.display = "block";
 
@@ -113,6 +89,34 @@ document.addEventListener("DOMContentLoaded", function () {
             behavior: "smooth",
             block: "center"
         });
+    }
+
+    form.addEventListener("submit", function () {
+
+        submissionStarted = true;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+
+        successMessage.style.display = "none";
+
+        /*
+         * Fallback confirmation:
+         * Some browsers do not reliably report the Google Forms
+         * iframe load event.
+         */
+        confirmationTimer =
+            setTimeout(showConfirmation, 1500);
+    });
+
+    submissionFrame.addEventListener("load", function () {
+
+        // Ignore the iframe's initial blank load.
+        if (!submissionStarted) {
+            return;
+        }
+
+        showConfirmation();
     });
 
 });
