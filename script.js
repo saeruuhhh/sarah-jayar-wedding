@@ -1,95 +1,118 @@
-alert("script.js loaded");
-// =========================
-// Wedding Countdown
-// =========================
+document.addEventListener("DOMContentLoaded", function () {
 
-const weddingDate = new Date("August 18, 2026 14:00:00").getTime();
+    // =====================================
+    // Wedding Countdown
+    // August 18, 2026 at 2:00 PM
+    // Philippine time
+    // =====================================
 
-const countdown = setInterval(function () {
+    const countdown = document.getElementById("countdown");
 
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const weddingDate =
+        new Date("2026-08-18T14:00:00+08:00").getTime();
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    function updateCountdown() {
 
-    const timer = document.getElementById("countdown");
-
-    if (timer) {
-        timer.innerHTML =
-            days + " Days " +
-            hours + " Hours " +
-            minutes + " Minutes " +
-            seconds + " Seconds";
-    }
-
-    if (distance < 0) {
-        clearInterval(countdown);
-
-        if (timer) {
-            timer.innerHTML = "Today is our Wedding Day!";
+        if (!countdown) {
+            return;
         }
+
+        const distance = weddingDate - Date.now();
+
+        if (distance <= 0) {
+
+            countdown.textContent =
+                "💍 Today is our Wedding Day!";
+
+            return;
+        }
+
+        const days =
+            Math.floor(distance / 86400000);
+
+        const hours =
+            Math.floor((distance % 86400000) / 3600000);
+
+        const minutes =
+            Math.floor((distance % 3600000) / 60000);
+
+        const seconds =
+            Math.floor((distance % 60000) / 1000);
+
+        countdown.textContent =
+            `${days} Days ${hours} Hours ` +
+            `${minutes} Minutes ${seconds} Seconds`;
     }
 
-}, 1000);
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
 
 
-// =========================
-// Smooth Scroll
-// =========================
+    // =====================================
+    // RSVP Submission
+    // =====================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const form =
+        document.getElementById("rsvpForm");
 
-    anchor.addEventListener("click", function (e) {
+    const submissionFrame =
+        document.getElementById("rsvpSubmissionFrame");
 
-        e.preventDefault();
+    const successMessage =
+        document.getElementById("successMessage");
 
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
+    const submitButton =
+        document.getElementById("rsvpSubmitButton");
+
+    if (
+        !form ||
+        !submissionFrame ||
+        !successMessage ||
+        !submitButton
+    ) {
+
+        console.error(
+            "RSVP setup error: one or more RSVP elements are missing."
+        );
+
+        return;
+    }
+
+    let submissionStarted = false;
+
+    form.addEventListener("submit", function () {
+
+        submissionStarted = true;
+
+        successMessage.style.display = "none";
+
+        submitButton.disabled = true;
+
+        submitButton.textContent = "Submitting...";
+    });
+
+    submissionFrame.addEventListener("load", function () {
+
+        // Ignore the iframe's initial blank-page load.
+        if (!submissionStarted) {
+            return;
+        }
+
+        submissionStarted = false;
+
+        form.reset();
+
+        submitButton.disabled = false;
+
+        submitButton.textContent = "Submit RSVP";
+
+        successMessage.style.display = "block";
+
+        successMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
-
     });
 
 });
-
-
-// =========================
-// Fade In Animation
-// =========================
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-
-    });
-
-});
-
-document.querySelectorAll(".fade-in").forEach(el => {
-    observer.observe(el);
-});
-
-
-// =========================
-// View Invitation Button
-// =========================
-
-const inviteButton = document.querySelector(".btn-custom");
-
-if (inviteButton) {
-
-    inviteButton.addEventListener("mouseover", function () {
-        inviteButton.style.transform = "scale(1.05)";
-    });
-
-    inviteButton.addEventListener("mouseout", function () {
-        inviteButton.style.transform = "scale(1)";
-    });
-
-}
