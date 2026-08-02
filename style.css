@@ -1,1 +1,256 @@
+/* ===========================
+   Sarah & Jay-Ar Wedding
+   =========================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --sage:#D9DBC5;
+    --olive:#5D6D5A;
+    --cream:#F9F8F3;
+    --white:#ffffff;
+    --text:#37423B;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ---------- Sections ---------- */
+
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+        linear-gradient(rgba(249,248,243,.92),rgba(249,248,243,.92)),
+        url("images/floral-bg.jpg") center/cover;
+}
+
+.hero h4{
+    letter-spacing:5px;
+    color:var(--olive);
+    margin-bottom:18px;
+    font-weight:500;
+}
+
+.hero h1{
+    font-family:'Great Vibes',cursive;
+    font-size:5rem;
+    color:var(--olive);
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.3rem;
+}
+
+.btn-main{
+    display:inline-block;
+    margin-top:40px;
+    padding:15px 45px;
+    border-radius:50px;
+    background:var(--olive);
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn-main:hover{
+    background:#465543;
+    transform:translateY(-2px);
+}
+
+/* ---------- Titles ---------- */
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    color:var(--olive);
+}
+
+/* ---------- Countdown ---------- */
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.time-box{
+    background:white;
+    border-radius:18px;
+    width:150px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.time-box h3{
+    font-size:2.4rem;
+    color:var(--olive);
+}
+
+.time-box span{
+    display:block;
+    margin-top:10px;
+    color:#777;
+}
+
+/* ---------- Cards ---------- */
+
+.card-box{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-bottom:35px;
+}
+
+/* ---------- Dress Code ---------- */
+
+.dress-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.dress-card{
+    background:var(--sage);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.dress-card h4{
+    color:var(--olive);
+    margin-bottom:15px;
+}
+
+.dress-card p{
+    line-height:1.8;
+}
+
+/* ---------- Reminder List ---------- */
+
+.reminder-list{
+    list-style:none;
+    padding:0;
+}
+
+.reminder-list li{
+    padding:14px 0;
+    border-bottom:1px solid #e5e5e5;
+    font-size:1.05rem;
+}
+
+/* ---------- RSVP ---------- */
+
+.rsvp-box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.rsvp-box input{
+    width:100%;
+    padding:15px;
+    margin:15px 0;
+    border:1px solid #ccc;
+    border-radius:12px;
+    font-size:16px;
+}
+
+.radio-group{
+    margin:20px 0;
+}
+
+.radio-group label{
+    display:block;
+    margin-bottom:12px;
+}
+
+button{
+    background:var(--olive);
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:40px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#495845;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    background:var(--sage);
+    text-align:center;
+    padding:45px 20px;
+}
+
+footer p{
+    margin-bottom:10px;
+}
+
+.footer-name{
+    font-family:'Great Vibes',cursive;
+    font-size:2.5rem;
+    color:var(--olive);
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3.6rem;
+}
+
+.section-title h2{
+    font-size:2.3rem;
+}
+
+.time-box{
+    width:120px;
+}
+
+}
