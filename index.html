@@ -194,7 +194,7 @@ Friendly Reminders
 
 <!-- ================= RSVP ================= -->
 
-<section class="section">
+<section id="rsvp" class="section">
 
 <div class="container">
 
@@ -210,36 +210,55 @@ Please confirm your attendance on or before
 
 </p>
 
-<form>
+<form id="rsvpForm">
 
-<input
-class="form-control mb-3"
-placeholder="Complete Name">
+    <input
+        type="text"
+        id="guestName"
+        class="form-control mb-3"
+        placeholder="Complete Name"
+        required>
 
-<select class="form-select mb-3">
+    <select
+        id="attendance"
+        class="form-select mb-3"
+        required>
 
-<option selected disabled>
-Will you attend?
-</option>
+        <option value="" selected disabled>
+            Will you attend?
+        </option>
 
-<option>
-Yes, I will attend
-</option>
+        <option value="Joyfully Accepts">
+            Joyfully Accepts
+        </option>
 
-<option>
-Sorry, I can't attend
-</option>
+        <option value="Regretfully Declines">
+            Regretfully Declines
+        </option>
 
-</select>
+    </select>
 
-<button
-class="btn btn-success w-100">
+    <button
+        type="submit"
+        class="btn btn-success w-100">
 
-Submit RSVP
+        Submit RSVP
 
-</button>
+    </button>
 
 </form>
+
+<div
+    id="successMessage"
+    class="alert alert-success mt-4 text-center"
+    style="display:none;">
+
+    <h5>💚 Thank you for your RSVP!</h5>
+
+    <p class="mb-0">
+        We have successfully received your response.<br>
+        We look forward to celebrating with you on our special day!
+    </p>
 
 </div>
 
